@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Banco de pruebas tipo Junker – Proyecto de Ingeniería 1 – UTB</title>
+<meta name="description" content="Construcción de un banco de pruebas tipo Junker para la evaluación del aflojamiento de uniones atornilladas bajo vibración en el laboratorio de materiales de la UTB.">
+<style>
+:root{
+  --blue:#093AD8; --coral:#D9501F; --ink:#26323C; --muted:#44546A;
+  --bg:#F5F7FC; --card:#FFFFFF; --line:#DCE3F3; --soft:#EEF2FB;
+}
+@media (prefers-color-scheme:dark){
+  :root{ --blue:#7FA0FF; --coral:#FF9A78; --ink:#EAEFF8; --muted:#B5C0D4; --bg:#0F1624; --card:#17213A; --line:#2A3858; --soft:#1C2848; }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 Helvetica,Arial,sans-serif}
+a{color:var(--blue)}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+header.hero{background:#093AD8;color:#fff;padding:44px 0 36px}
+.hero .uni{font-size:15px;letter-spacing:.04em;text-transform:uppercase;opacity:.9;margin:0 0 10px}
+.hero h1{margin:0 0 14px;font-size:clamp(26px,4.2vw,40px);line-height:1.2}
+.hero .sub{margin:0;font-size:18px;opacity:.95}
+nav{background:var(--card);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
+nav .wrap{display:flex;gap:6px;flex-wrap:wrap;padding-top:10px;padding-bottom:10px}
+nav a{padding:6px 14px;border-radius:999px;text-decoration:none;font-weight:700;font-size:15px;color:var(--ink)}
+nav a:hover,nav a:focus-visible{background:var(--soft);outline:none}
+main section{padding:34px 0 6px}
+h2{font-size:26px;margin:0 0 14px;line-height:1.25}
+h2::before{content:"";display:inline-block;width:8px;height:24px;background:var(--coral);border-radius:3px;margin-right:12px;vertical-align:-3px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px 24px}
+.grid{display:grid;gap:16px}
+@media(min-width:760px){.grid.two{grid-template-columns:1fr 1fr}}
+.pill{display:inline-block;background:var(--soft);color:var(--ink);padding:3px 12px;border-radius:999px;font-size:14px;font-weight:700;margin:0 6px 6px 0}
+ol.obj{margin:0;padding-left:0;list-style:none;counter-reset:o}
+ol.obj li{counter-increment:o;position:relative;padding:0 0 14px 52px}
+ol.obj li::before{content:counter(o);position:absolute;left:0;top:0;width:36px;height:36px;border-radius:50%;background:var(--blue);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center}
+@media(prefers-color-scheme:dark){ol.obj li::before{color:#0F1624}}
+.team li{margin:2px 0}
+ul.clean{margin:0;padding-left:20px}
+.poster{display:grid;gap:22px;align-items:start}
+@media(min-width:820px){.poster{grid-template-columns:minmax(0,420px) 1fr}}
+.poster img{width:100%;height:auto;border-radius:10px;border:1px solid var(--line);display:block;box-shadow:0 6px 24px rgba(9,58,216,.15)}
+.btns{display:flex;flex-wrap:wrap;gap:12px;margin:16px 0 0}
+.btn{display:inline-block;padding:12px 22px;border-radius:12px;font-weight:700;text-decoration:none;border:2px solid var(--blue);cursor:pointer;font:700 16px Helvetica,Arial,sans-serif}
+.btn.primary{background:#093AD8;color:#fff}
+.btn.ghost{background:transparent;color:var(--blue)}
+.btn:hover,.btn:focus-visible{filter:brightness(1.1);outline:3px solid var(--coral);outline-offset:2px}
+ol.refs{list-style:none;margin:0;padding:0}
+ol.refs li{display:grid;grid-template-columns:44px 1fr;gap:6px;margin:0 0 14px;font-size:16px}
+ol.refs .n{font-weight:700;color:var(--blue)}
+#estado{margin-left:10px;font-size:15px;color:var(--muted)}
+footer{margin-top:44px;padding:26px 0 40px;border-top:1px solid var(--line);color:var(--muted);font-size:15px}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="uni">Universidad Tecnológica de Bolívar · Ingeniería Mecánica</p>
+    <h1>Construcción de un banco de pruebas tipo Junker para la evaluación del aflojamiento de uniones atornilladas bajo vibración</h1>
+    <p class="sub">Proyecto de Ingeniería 1 · Laboratorio de materiales de la UTB</p>
+  </div>
+</header>
+
+<nav aria-label="Secciones">
+  <div class="wrap">
+    <a href="#resumen">Resumen</a>
+    <a href="#junker">Ensayo Junker</a>
+    <a href="#objetivos">Objetivos</a>
+    <a href="#poster">Póster</a>
+    <a href="#referencias">Referencias</a>
+  </div>
+</nav>
+
+<main class="wrap">
+
+  <section id="resumen">
+    <h2>Resumen del proyecto</h2>
+    <div class="card">
+      <p>Las uniones atornilladas sometidas a vibraciones transversales pueden experimentar una pérdida progresiva de precarga, comprometiendo su estabilidad y actualmente, la universidad no dispone de un banco de pruebas para evaluarlo experimentalmente. El proyecto propone construir un banco tipo Junker, que permita estudiar el comportamiento de las uniones atornilladas bajo condiciones controladas de vibración.</p>
+      <p><strong>Producto final:</strong> un banco de pruebas tipo Junker funcional, instrumentado y validado, que quedará en el laboratorio de la Facultad como herramienta de apoyo a la docencia y la investigación.</p>
+      <p style="margin-bottom:0"><strong>El banco medirá:</strong>
+        <span class="pill">Fuerza de pretensión</span><span class="pill">Desplazamiento transversal</span><span class="pill">Frecuencia de excitación</span></p>
+    </div>
+  </section>
+
+  <section id="junker">
+    <h2>¿Cómo funciona un ensayo Junker?</h2>
+    <div class="card">
+      <p style="margin-top:0">En el ensayo Junker, la unión atornillada que se quiere evaluar sujeta una placa móvil (placa deslizante) contra una placa fija. Un mecanismo excéntrico mueve la placa móvil de forma transversal al eje del tornillo, con una amplitud y una frecuencia definidas. Mientras tanto, un sensor mide la fuerza de apriete en tiempo real y la grafica contra el número de ciclos [2], [3].</p>
+      <p style="margin-bottom:0">Si el movimiento transversal vence la fricción que genera la pretensión, hay deslizamiento entre las superficies de contacto y el tornillo tiende a aflojarse [2]. Los requerimientos del banco se definen tomando como referencias la DIN 25201-4, anexo B, y la ISO 16130.</p>
+    </div>
+  </section>
+
+  <section id="objetivos">
+    <h2>Objetivos</h2>
+    <div class="grid two">
+      <div class="card">
+        <h3 style="margin-top:0">Objetivo general</h3>
+        <p style="margin-bottom:0">Diseñar y construir un banco de pruebas tipo Junker que permita evaluar de manera experimental el comportamiento al aflojamiento de uniones atornilladas (tornillos y tuercas) sometidas a vibración transversal controlada, como herramienta de apoyo a la docencia y la investigación en la Facultad de Ingeniería Mecánica de la UTB.</p>
+      </div>
+      <div class="card">
+        <h3 style="margin-top:0">Objetivos específicos</h3>
+        <ol class="obj">
+          <li>Establecer los requerimientos funcionales y técnicos del banco de pruebas tomando como referencias la DIN 25201-4, anexo B, la ISO 16130 y las capacidades del laboratorio.</li>
+          <li>Diseñar el banco de pruebas, incluyendo el sistema mecánico de excitación vibratoria transversal, el sistema de sujeción de las probetas atornilladas y la selección del sistema de instrumentación.</li>
+          <li>Construir y ensamblar el prototipo del banco de pruebas conforme al diseño, integrando el sistema de instrumentación.</li>
+          <li>Validar experimentalmente el funcionamiento del equipo mediante ensayos preliminares con uniones atornilladas de referencia.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section id="equipo">
+    <h2>Equipo y asesores</h2>
+    <div class="grid two">
+      <div class="card">
+        <h3 style="margin-top:0">Integrantes</h3>
+        <ul class="clean team">
+          <li>Yair Beleño Rivera</li>
+          <li>Miguel A. Díaz Meza</li>
+          <li>Camilo A. Muñoz Mejía</li>
+          <li>Arnol D. J. Puello Menco</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3 style="margin-top:0">Asesores</h3>
+        <ul class="clean team">
+          <li>Martínez Trespalacios, José Alberto</li>
+          <li>Gómez Sánchez, Deyson</li>
+        </ul>
+        <p style="margin:14px 0 0;color:var(--muted)">Programa: Ingeniería Mecánica</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="poster">
+    <h2>Póster</h2>
+    <div class="poster">
+      <a href="poster.png" aria-label="Abrir la imagen del póster en tamaño completo">
+        <img src="poster.png" alt="Póster del proyecto: banco de pruebas tipo Junker. Incluye definición del problema, requerimientos, restricciones y normativas de diseño, metodología, producto final, usuarios, línea de tiempo y referencias.">
+      </a>
+      <div class="card">
+        <p style="margin-top:0">Aquí puedes ver el póster completo del proyecto y descargarlo.</p>
+        <div class="btns">
+          <a class="btn primary" href="poster.pdf" download="Poster_Proyecto_Junker.pdf">Descargar póster (PDF)</a>
+          <a class="btn ghost" href="poster.png" target="_blank" rel="noopener">Ver imagen en tamaño completo</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="referencias">
+    <h2>Referencias</h2>
+    <div class="card">
+      <ol class="refs" id="lista-refs">
+        <li><span class="n">[1]</span><span>A. Hasrak, “Development of a test bench to study self-loosening of bolted joints,” tesis de maestría en Ingeniería Mecánica, École de technologie supérieure, Université du Québec, Montreal, 2018.</span></li>
+        <li><span class="n">[2]</span><span>F. Pichoff, M. Kummel y M. Schiff, “Dynamic vibration testing of fasteners: fastener self-loosening theory, vibration testing practical applications, comparison of the international standards and recommendations on how to set-up a meaningful testing protocol,” en <em>Colloque Supméca 2017, Les Assemblages Mécaniques</em>, Vibrationmaster Technology Centre, Foetz, Luxemburgo, 2017.</span></li>
+        <li><span class="n">[3]</span><span>J. Dominik, “Testing bolting resistance to vibration,” <em>Fastener + Fixing Magazine</em>, n.º 95, sep. 2015 (ref. FFT150929).</span></li>
+        <li><span class="n">[4]</span><span>Deutsches Institut für Normung, “Test specification for demonstrating the resistance to self-loosening of secured bolted joints,” E DIN 25201-4:2010-03, Anexo B (normativo), 2010.</span></li>
+      </ol>
+      <div class="btns" style="margin-top:6px">
+        <button class="btn ghost" type="button" id="copiar">Copiar referencias</button><span id="estado" role="status" aria-live="polite"></span>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">Universidad Tecnológica de Bolívar · Escuela de Ingeniería, Arquitectura y Diseño · Ingeniería Mecánica · Proyecto de Ingeniería 1</div>
+</footer>
+
+<script>
+(function(){
+  var btn=document.getElementById('copiar'), est=document.getElementById('estado');
+  if(!btn) return;
+  btn.addEventListener('click',function(){
+    var items=document.querySelectorAll('#lista-refs li'), out=[];
+    for(var i=0;i<items.length;i++){ out.push(items[i].innerText.replace(/\s*\n\s*/g,' ').trim()); }
+    var texto=out.join('\n');
+    function ok(){ est.textContent='Referencias copiadas.'; setTimeout(function(){est.textContent='';},3000); }
+    function fallo(){ est.textContent='No se pudo copiar; selecciona el texto y cópialo a mano.'; }
+    try{
+      if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(texto).then(ok,fallo); }
+      else{ fallo(); }
+    }catch(e){ fallo(); }
+  });
+})();
+</script>
+</body>
+</html>
